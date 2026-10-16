@@ -104,20 +104,11 @@ var balashikha = {
 };
 
 var map = L.map('map');
-var osm = L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
+L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-var hot = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  subdomains: 'abc',
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, style: <a href="https://www.hotosm.org">HOT</a>'
-});
-var openTopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-  maxZoom: 17,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM | style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a>'
-});
-var layerControl = L.control.layers({'OpenStreetMap': osm, 'OSM Humanitarian': hot, 'OpenTopoMap': openTopo}).addTo(map);
+var layerControl = L.control.layers(null, {}).addTo(map);
 
 var groups = [];
 [odintsovo, balashikha].forEach(function(zone){
